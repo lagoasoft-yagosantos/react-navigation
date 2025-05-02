@@ -19,7 +19,7 @@ jobs:
       cancel-in-progress: true
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Setup
         uses: ./.github/actions/setup
@@ -39,11 +39,11 @@ jobs:
           path: ios-debug-build/
           key: ios-debug-build-${{ steps.calculate-fingerprint.outputs.fingerprint }}
 
-      - name: Use latest stable Xcode
+      - name: Use appropriate Xcode version
         if: steps.restore-debug-build.outputs.cache-hit != 'true'
         uses: maxim-lobanov/setup-xcode@v1
         with:
-          xcode-version: '15.4'
+          xcode-version: '16.2'
 
       - name: Build iOS App
         if: steps.restore-debug-build.outputs.cache-hit != 'true'

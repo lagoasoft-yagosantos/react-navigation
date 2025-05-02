@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.label.name == 'needs more info'
     steps:
-      - uses: actions/github-script@v3
+      - uses: actions/github-script@v7
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.label.name == 'question'
     steps:
-      - uses: actions/github-script@v3
+      - uses: actions/github-script@v7
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
@@ -39,7 +39,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.label.name == 'feature-request'
     steps:
-      - uses: actions/github-script@v3
+      - uses: actions/github-script@v7
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
@@ -54,7 +54,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.label.name == 'platform:windows' || github.event.label.name == 'platform:macos'
     steps:
-      - uses: actions/github-script@v3
+      - uses: actions/github-script@v7
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
@@ -69,7 +69,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.label.name == 'library:react-native-screens'
     steps:
-      - uses: actions/github-script@v3
+      - uses: actions/github-script@v7
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
@@ -84,7 +84,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.label.name == 'library:react-native-reanimated'
     steps:
-      - uses: actions/github-script@v3
+      - uses: actions/github-script@v7
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
@@ -99,7 +99,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.label.name == 'library:react-native-gesture-handler'
     steps:
-      - uses: actions/github-script@v3
+      - uses: actions/github-script@v7
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
@@ -114,7 +114,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.label.name == 'library:react-native-safe-area-context'
     steps:
-      - uses: actions/github-script@v3
+      - uses: actions/github-script@v7
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
@@ -129,7 +129,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.label.name == 'library:react-native-pager-view'
     steps:
-      - uses: actions/github-script@v3
+      - uses: actions/github-script@v7
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
