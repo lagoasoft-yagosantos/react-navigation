@@ -29,7 +29,7 @@ jobs:
       - name: Calculate fingerprint
         id: calculate-fingerprint
         run: |
-          FINGERPRINT=$(yarn run fingerprint:android | grep '^fingerprint:' | cut -d ' ' -f2-)
+          FINGERPRINT=$(npx expo-updates fingerprint:generate --platform android | jq -r '.hash')
           echo "Fingerprint for Android: $FINGERPRINT"
           echo "fingerprint=$FINGERPRINT" >> $GITHUB_OUTPUT
         working-directory: example
@@ -63,7 +63,10 @@ jobs:
 
       - name: Build Android App
         if: steps.restore-debug-build.outputs.cache-hit != 'true'
-        run: yarn run build:debug:android
+        run: |
+          yarn expo prebuild --platform android
+          cd android
+          ./gradlew assembleDebug -DtestBuildType=debug -Dorg.gradle.jvmargs=-Xmx4g
         working-directory: example
 
       - name: Prepare cache folder

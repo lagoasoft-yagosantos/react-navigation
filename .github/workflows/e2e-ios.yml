@@ -27,7 +27,7 @@ jobs:
       - name: Calculate fingerprint
         id: calculate-fingerprint
         run: |
-          FINGERPRINT=$(yarn run fingerprint:ios | grep '^fingerprint:' | cut -d ' ' -f2-)
+          FINGERPRINT=$(npx expo-updates fingerprint:generate --platform ios | jq -r '.hash')
           echo "Fingerprint for iOS: $FINGERPRINT"
           echo "fingerprint=$FINGERPRINT" >> $GITHUB_OUTPUT
         working-directory: example
@@ -47,7 +47,9 @@ jobs:
 
       - name: Build iOS App
         if: steps.restore-debug-build.outputs.cache-hit != 'true'
-        run: yarn run build:debug:ios
+        run: |
+          yarn expo prebuild --platform ios
+          xcodebuild ONLY_ACTIVE_ARCH=YES -workspace ios/ReactNavigation.xcworkspace -UseNewBuildSystem=YES -scheme ReactNavigation -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build -quiet
         working-directory: example
 
       - name: Prepare cache folder
