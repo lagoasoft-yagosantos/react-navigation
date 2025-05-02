@@ -26,19 +26,18 @@ name: Native Stack
     retryTapIfNoChange: false
 - assertVisible:
     text: 'Albums'
-# Commented out because of Native Stack bug: 
-# - tapOn
-#     text: 'Push article'
-#     retryTapIfNoChange: false
-# - assertVisible:
-#     text: 'Article by Babel fish'
-# - tapOn:
-#     text: 'Pop to albums'
-#     retryTapIfNoChange: false
-# - assertVisible:
-#     text: 'Albums'
-# - tapOn:
-#     text: 'Pop by 2'
-#     retryTapIfNoChange: false
-# - assertVisible:
-#     text: 'Contacts'
+- tapOn:
+    text: 'Push article'
+    retryTapIfNoChange: false
+- assertVisible:
+    text: 'Article by Babel fish'
+- tapOn:
+    text: 'Pop to albums'
+    retryTapIfNoChange: false
+- assertVisible:
+    text: 'Albums'
+- tapOn:
+    text: 'Pop by 2'
+    retryTapIfNoChange: false
+- assertVisible:
+    text: 'Article by Babel fish'
