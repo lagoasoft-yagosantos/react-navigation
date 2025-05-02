@@ -75,7 +75,7 @@ jobs:
           curl -fsSL "https://get.maestro.mobile.dev" | bash
           echo "$HOME/.maestro/bin" >> $GITHUB_PATH
         env:
-          MAESTRO_VERSION: 1.36.0
+          MAESTRO_VERSION: 1.40.0
 
       - name: Boot iOS Simulator
         run: |
